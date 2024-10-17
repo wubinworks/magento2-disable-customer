@@ -1,5 +1,5 @@
 # Disable Customer Extension for Magento 2
-<a href="https://www.wubinworks/disable-customer.html" target="_blank"><img src="https://raw.githubusercontent.com/wubinworks/home/master/images/Wubinworks/DisableCustomer/disable-customer.jpg" alt="Wubinworks Disable Customer" title="Wubinworks Disable Customer"/></a>
+<a href="https://www.wubinworks.com/disable-customer.html" target="_blank"><img src="https://raw.githubusercontent.com/wubinworks/home/master/images/Wubinworks/DisableCustomer/disable-customer.jpg" alt="Wubinworks Disable Customer" title="Wubinworks Disable Customer"/></a>
 
 ## Introduction
 In various business situations, the store owners may want to disallow certain customers to login but they do not want to delete those accounts so they can re-enable them in the future.
