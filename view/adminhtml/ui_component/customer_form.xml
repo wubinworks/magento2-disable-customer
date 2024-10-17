@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Wubinworks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <htmlContent name="customer_edit_tab_view_content">
+        <!-- For block, class and template attributes are needed, not sure if it is a bug -->
+        <block name="customer_edit_tab_view" class="Magento\Customer\Block\Adminhtml\Edit\Tab\View" template="Magento_Customer::tab/view.phtml">
+            <block name="personal_info" class="Magento\Customer\Block\Adminhtml\Edit\Tab\View\PersonalInfo" template="Magento_Customer::tab/view/personal_info.phtml">
+                <block class="Magento\Customer\Block\Adminhtml\Edit\Tab\View\PersonalInfo"
+                    name="wubinworks_disable_customer_personal_info"
+                    template="Wubinworks_DisableCustomer::tab/view/personal_info.phtml" />
+            </block>
+        </block>
+    </htmlContent>
+    <fieldset name="customer">
+        <field name="ww_is_disabled" sortOrder="70" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">customer</item>
+                    <item name="visible" xsi:type="boolean">true</item><!-- required, the attribute has metadata 'visible' = false -->
+                    <item name="additionalClasses" xsi:type="array">
+                        <item name="wubinworks-attribute" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="notice" xsi:type="string" translate="true"></item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[Disable Login, Password Reset and Email Confirmation<br />Instantly terminate exsisting logged in session and revoke WebAPI tokens]]></item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Disabled</label>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="string">0</map>
+                            <map name="true" xsi:type="string">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="ww_disabled_customer_message" sortOrder="71" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">customer</item>
+                    <item name="visible" xsi:type="boolean">true</item><!-- required, the attribute has metadata 'visible' = false -->
+                    <item name="additionalClasses" xsi:type="array">
+                        <item name="wubinworks-attribute" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="notice" xsi:type="string" translate="true"></item>
+                    <item name="additionalInfo" xsi:type="string" translate="true"><![CDATA[Displays when disabled customer trys to perform the above actions with correct credential<br />Fallback to `Default Disabled Customer Message` in Store Configuration if empty]]></item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Disabled Customer Message</label>
+            </settings>
+        </field>
+    </fieldset>
+</form>

@@ -1,0 +1,42 @@
+{
+    "name": "wubinworks/module-disable-customer",
+    "description": "Disable Customer Extension for Magento 2. Disable/Enable customer login, password reset and account activation. Works for both Frontend and WebAPI area.",
+    "keywords": [
+        "disable customer",
+        "disable login",
+        "force logout",
+        "email confirmation",
+        "password reset",
+        "webapi",
+        "revoke token",
+        "magento 2 extension"
+    ],
+    "require": {
+        "php": ">=7.4",
+        "magento/module-customer": "*",
+        "magento/magento2-base": "~2.4.0"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Wubinworks",
+            "email": "wubinworks@outlook.com",
+            "homepage": "https://www.wubinworks/disable-customer.html",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Wubinworks\\DisableCustomer\\": ""
+        }
+    }
+}

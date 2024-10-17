@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Wubinworks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Api\AccountManagementInterface">
+        <plugin name="wubinworks_disablecustomer_plugin_customer_api_accountmanagement" type="Wubinworks\DisableCustomer\Plugin\Customer\Api\AccountManagement" />
+    </type>
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="wubinworks_disablecustomer_plugin_customer_api_customerrepository" type="Wubinworks\DisableCustomer\Plugin\Customer\Api\CustomerRepository" />
+    </type>
+    <type name="Magento\Framework\Webapi\ServiceOutputProcessor">
+        <plugin name="wubinworks_disablecustomer_plugin_framework_webapi_serviceoutputprocessor" type="Wubinworks\DisableCustomer\Plugin\Framework\Webapi\ServiceOutputProcessor" />
+    </type>
+    <type name="Wubinworks\DisableCustomer\Helper\Customer">
+        <arguments>
+            <!--
+                Override "disabled" to true in your module to show the attribute in `Customer User Context`
+                "disabled" is optional and default to false
+            -->
+            <argument name="backendOnlyAttributeCodes" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="code" xsi:type="const">Wubinworks\DisableCustomer\Setup\Patch\Data\AddCustomerAttributes::CUSTOMER_ATTR_IS_DISABLED</item>
+                    <item name="disabled" xsi:type="boolean">false</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="code" xsi:type="const">Wubinworks\DisableCustomer\Setup\Patch\Data\AddCustomerAttributes::CUSTOMER_ATTR_DISABLED_CUSTOMER_MESSAGE</item>
+                    <item name="disabled" xsi:type="boolean">false</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="code" xsi:type="const">Wubinworks\DisableCustomer\Setup\Patch\Data\AddCustomerAttributes::CUSTOMER_ATTR_DISABLED_AT</item>
+                    <item name="disabled" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

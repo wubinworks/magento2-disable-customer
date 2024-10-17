@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Wubinworks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="wubinworks" translate="label" sortOrder="100" class="wubinworks-config-tab">
+            <label>Wubinworks</label>
+        </tab>
+        <section id="wubinworks_disablecustomer" translate="label comment" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>wubinworks_disablecustomer</class>
+            <label>Disable Customer</label>
+            <tab>wubinworks</tab>
+            <resource>Wubinworks_DisableCustomer::configuration</resource>
+            <group id="general" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <attribute type="expanded">1</attribute>
+                <comment><![CDATA[Customers are not disabled by default<br />To force a customer to logout now, use the `Disable -> Save -> Enable -> Save` trick]]></comment>
+                <label>General</label>
+                <field id="version" type="label" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="0">
+                    <label>Version</label>
+                    <comment><![CDATA[<a href="https://www.wubinworks.com/disable-customer.html" target="_blank" rel="noreferrer">More help</a>]]></comment>
+                </field>
+                <field id="default_disabled_customer_message" type="textarea" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Default Disabled Customer Message</label>
+                    <comment><![CDATA[Fallback message when `Disabled Customer Message` is not set for the customer in customer editing page]]></comment>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

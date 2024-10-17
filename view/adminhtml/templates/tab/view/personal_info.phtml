@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Wubinworks. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Adminhtml\Edit\Tab\View\PersonalInfo $block */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundHelper
+
+use Wubinworks\DisableCustomer\Helper\Customer as CustomerHelper;
+
+$isDisabled = $this->helper(CustomerHelper::class)->isCustomerDisabled($block->getCustomerId());
+?>
+<tr class="wubinworks-personal-info">
+    <th><?= $escaper->escapeHtml(__('Disabled')) . ':' ?></th>
+    <td class="<?= $escaper->escapeHtmlAttr($isDisabled ? 'yes' : 'no') ?>">
+        <?= $escaper->escapeHtml($isDisabled ? __('Yes') : __('No')) ?>
+    </td>
+</tr>
